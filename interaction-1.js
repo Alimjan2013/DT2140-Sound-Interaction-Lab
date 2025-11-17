@@ -111,7 +111,7 @@ function playAudio(x) {
   dspNode.setParamValue("/engine/maxSpeed",maxSpeed);
   setTimeout(() => {
     dspNode.setParamValue("/engine/gate", 0);
-  }, 10000);
+  }, 1000);
 }
 
 //==========================================================================================
