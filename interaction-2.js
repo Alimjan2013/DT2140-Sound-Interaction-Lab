@@ -111,7 +111,7 @@ function playAudio(rotz) {
   dspNode.setParamValue("/additiveplus/gate", statetoggle);
 
   if (rotz > 300 && rotz < 100) {
-
+stopAudio()
   }
 }
 
