@@ -62,7 +62,7 @@ function rotationChange(rotx, roty, rotz) {
 }
 
 function mousePressed() {
-  playAudio();
+//   playAudio();
   // Use this for debugging from the desktop!
 }
 
@@ -77,7 +77,7 @@ function deviceTurned() {
 function deviceShaken() {
   shaketimer = millis();
   statusLabels[0].style("color", "pink");
-  playAudio();
+//   playAudio();
 }
 
 function getMinMaxParam(address) {
