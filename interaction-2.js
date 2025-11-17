@@ -96,6 +96,8 @@ function getMinMaxParam(address) {
 //
 //==========================================================================================
 
+let statetoggle = true;
+
 function playAudio(rotz) {
   if (!dspNode) {
     return;
@@ -106,11 +108,21 @@ function playAudio(rotz) {
   frequency = map(rotz, 100, 300, 200, 600);
   dspNode.setParamValue("additiveplus/freq", frequency);
 
-  dspNode.setParamValue("/additiveplus/gate", 1);
+  dspNode.setParamValue("/additiveplus/gate", statetoggle);
 
   if (rotz > 300 && rotz < 100) {
-    dspNode.setParamValue("/additiveplus/gate", 0);
+
   }
+}
+
+function stopAudio() {
+  if (!dspNode) {
+    return;
+  }
+  if (audioContext.state === "suspended") {
+    return;
+  }
+  statetoggle = false;
 }
 
 //==========================================================================================
