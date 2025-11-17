@@ -51,10 +51,11 @@ engine1.createDSP(audioContext, 1024).then((node) => {
 
 function accelerationChange(accx, accy, accz) {
   // changeAccelerationParams()
-  if (accx>10 && accx < 60) {
+//   if (accx>10 && accx < 60) {
     
-    playAudio(accx);
-  }
+   
+//   }
+ playAudio(accx);
 }
 
 function rotationChange(rotx, roty, rotz) {
