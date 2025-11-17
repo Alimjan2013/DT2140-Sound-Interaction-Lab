@@ -57,7 +57,9 @@ function accelerationChange(accx, accy, accz) {
   }
 }
 
-function rotationChange(rotx, roty, rotz) {}
+function rotationChange(rotx, roty, rotz) {
+
+}
 
 function mousePressed() {
   playAudio();
@@ -112,11 +114,18 @@ function playAudio(x) {
   // them printed on the console of your browser when you load the page)
   // For example if you change to a bell sound, here you could use "/churchBell/gate" instead of
   // "/thunder/rumble".
-  dspNode.setParamValue("/engine/gate", 1);
   console.log(x);
 
+  if (x < 60 && x > 10){
+    dspNode.setParamValue("/engine/gate", 1);
+  }else{
+    dspNode.setParamValue("/engine/gate", 0);
+  }
+
   var maxSpeed =  map(x, 10, 60, 0.4, 0.8);
+
   dspNode.setParamValue("/engine/maxSpeed",maxSpeed);
+
 //   setTimeout(() => {
 //     dspNode.setParamValue("/engine/gate", 0);
 //   }, 10000);
