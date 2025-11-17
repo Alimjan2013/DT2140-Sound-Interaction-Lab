@@ -51,7 +51,8 @@ engine1.createDSP(audioContext, 1024).then((node) => {
 
 function accelerationChange(accx, accy, accz) {
   // changeAccelerationParams()
-  if (accx < 60) {
+  if (accx>10 && accx < 60) {
+    
     playAudio(accx);
   }
 }
@@ -85,6 +86,11 @@ function getMinMaxParam(address) {
   return [exampleMinValue, exampleMaxValue];
 }
 
+// function getRandomBetweenTenAndSixty() {
+//   // Generate a uniform integer in the inclusive range [10, 60]
+//   return Math.floor(Math.random() * 51) + 10;
+// }
+
 //==========================================================================================
 // AUDIO INTERACTION
 //------------------------------------------------------------------------------------------
@@ -107,11 +113,13 @@ function playAudio(x) {
   // For example if you change to a bell sound, here you could use "/churchBell/gate" instead of
   // "/thunder/rumble".
   dspNode.setParamValue("/engine/gate", 1);
+  console.log(x);
+
   var maxSpeed =  map(x, 10, 60, 0, 1);
   dspNode.setParamValue("/engine/maxSpeed",maxSpeed);
   setTimeout(() => {
     dspNode.setParamValue("/engine/gate", 0);
-  }, 1000);
+  }, 10000);
 }
 
 //==========================================================================================
