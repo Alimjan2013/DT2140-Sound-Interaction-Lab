@@ -110,7 +110,7 @@ function playAudio(rotz) {
     dspNode.setParamValue("additiveplus/freq", 580);
     dspNode.setParamValue("/additiveplus/gate", 1);
   } else {
-    dspNode.setParamValue("/additiveplus/gate", 0);
+    // dspNode.setParamValue("/additiveplus/gate", 0);
   }
 }
 
