@@ -115,11 +115,11 @@ function playAudio(x) {
   dspNode.setParamValue("/engine/gate", 1);
   console.log(x);
 
-  var maxSpeed =  map(x, 10, 60, 0.2, 1);
+  var maxSpeed =  map(x, 10, 60, 0.4, 0.8);
   dspNode.setParamValue("/engine/maxSpeed",maxSpeed);
-  setTimeout(() => {
-    dspNode.setParamValue("/engine/gate", 0);
-  }, 10000);
+//   setTimeout(() => {
+//     dspNode.setParamValue("/engine/gate", 0);
+//   }, 10000);
 }
 
 //==========================================================================================
