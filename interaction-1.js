@@ -95,7 +95,7 @@ function getMinMaxParam(address) {
 //
 //==========================================================================================
 
-function playAudio() {
+function playAudio(x) {
   if (!dspNode) {
     return;
   }
@@ -107,6 +107,8 @@ function playAudio() {
   // For example if you change to a bell sound, here you could use "/churchBell/gate" instead of
   // "/thunder/rumble".
   dspNode.setParamValue("/engine/gate", 1);
+  var maxSpeed =  map(x, 10, 60, 0, 1);
+  dspNode.setParamValue("/engine/maxSpeed",maxSpeed);
   setTimeout(() => {
     dspNode.setParamValue("/engine/gate", 0);
   }, 10000);
