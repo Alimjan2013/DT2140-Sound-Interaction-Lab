@@ -103,14 +103,13 @@ function playAudio(rotz) {
   if (audioContext.state === "suspended") {
     return;
   }
-  if (rotz < 100 && rotz > 10) {
-    dspNode.setParamValue("additiveplus/freq", 240);
-    dspNode.setParamValue("/additiveplus/gate", 1);
-  } else if (rotz < 360 && rotz > 280) {
-    dspNode.setParamValue("additiveplus/freq", 580);
-    dspNode.setParamValue("/additiveplus/gate", 1);
-  } else {
-    // dspNode.setParamValue("/additiveplus/gate", 0);
+  frequency = map(rotz, 100, 300, 200, 600);
+  dspNode.setParamValue("additiveplus/freq", frequency);
+
+  dspNode.setParamValue("/additiveplus/gate", 1);
+
+  if (rotz > 300 && rotz < 100) {
+    dspNode.setParamValue("/additiveplus/gate", 0);
   }
 }
 
