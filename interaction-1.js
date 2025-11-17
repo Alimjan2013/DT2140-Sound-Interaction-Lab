@@ -51,8 +51,8 @@ engine1.createDSP(audioContext, 1024).then((node) => {
 
 function accelerationChange(accx, accy, accz) {
   // changeAccelerationParams()
-  if (accx > 10 && accx < 60) {
-    playAudio();
+  if (accx < 60) {
+    playAudio(accx);
   }
 }
 
@@ -111,7 +111,7 @@ function playAudio(x) {
   dspNode.setParamValue("/engine/maxSpeed",maxSpeed);
   setTimeout(() => {
     dspNode.setParamValue("/engine/gate", 0);
-  }, 100000);
+  }, 1000);
 }
 
 //==========================================================================================
